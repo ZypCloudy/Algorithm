@@ -6,7 +6,7 @@ public class Main {
         Integer stoi = solution.myAtoi("  123123131");
         System.out.println(stoi);
 
-        Integer mtoi = solution.romanToInt("IV");
+        Integer mtoi = solution.romanToInt("DCXXI");
         System.out.println(mtoi);
     }
 }

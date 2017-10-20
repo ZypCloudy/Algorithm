@@ -55,33 +55,59 @@ public class Solution {
 
     //13. Roman to Integer
     public int romanToInt(String s) {
-        int res = 0;
-        for(int i=0;i<s.length();i++){
-            switch (s.charAt(i)){
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            switch (s.charAt(i)) {
                 case 'I':
-                    if(s.charAt(i+1) == 'V')
-                        res--;
-                    else
-                        res++;
+                    if (i == s.length() - 1) {
+                        count++;
+                        break;
+                    }
+                    if (s.charAt(i + 1) == 'V'||s.charAt(i + 1) == 'X') {
+                        count--;
+                        break;
+                    } else {
+                        count++;
+                        break;
+                    }
+                case 'V':
+                    count += 5;
                     break;
-                case 'V': res += 5;break;
                 case 'X':
-                    if(s.charAt(i+1) == 'L' || s.charAt(i+1) == 'C')
-                        res -= 10;
-                    else
-                        res += 10;
+                    if (i == s.length() - 1) {
+                        count += 10;
+                        break;
+                    }
+                    if (s.charAt(i + 1) == 'L' || s.charAt(i + 1) == 'C') {
+                        count -= 10;
+                        break;
+                    } else {
+                        count += 10;
+                        break;
+                    }
+                case 'L':
+                    count += 50;
                     break;
-                case 'L': res += 50;break;
                 case 'C':
-                    if(s.charAt(i+1) == 'D' || s.charAt(i+1) == 'M')
-                        res -= 100;
-                    else
-                        res += 100;
+                    if (i == s.length() - 1) {
+                        count += 100;
+                        break;
+                    }
+                    if (s.charAt(i + 1) == 'D' || s.charAt(i + 1) == 'M') {
+                        count -= 100;
+                        break;
+                    } else {
+                        count += 100;
+                        break;
+                    }
+                case 'D':
+                    count += 500;
                     break;
-                case 'D': res += 500;break;
-                case 'M': res += 1000;break;
-            };
+                case 'M':
+                    count += 1000;
+                    break;
+            }
         }
-        return res;
+        return count;
     }
 }
