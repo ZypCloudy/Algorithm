@@ -43,18 +43,45 @@ public class Solution {
         }
         return (int)sum;
     }
+//        Map map = new HashMap(){{
+//            put('I',1);
+//            put('V',5);
+//            put('X',10);
+//            put('L',50);
+//            put('C',100);
+//            put('D',500);
+//            put('M',1000);
+//        }};
+
     //13. Roman to Integer
     public int romanToInt(String s) {
         int res = 0;
-        Map map = new HashMap(){{
-            put('I',1);
-            put('V',5);
-            put('X',10);
-            put('L',50);
-            put('C',100);
-            put('D',500);
-            put('M',1000);
-        }};
+        for(int i=0;i<s.length();i++){
+            switch (s.charAt(i)){
+                case 'I':
+                    if(s.charAt(i+1) == 'V')
+                        res--;
+                    else
+                        res++;
+                    break;
+                case 'V': res += 5;break;
+                case 'X':
+                    if(s.charAt(i+1) == 'L' || s.charAt(i+1) == 'C')
+                        res -= 10;
+                    else
+                        res += 10;
+                    break;
+                case 'L': res += 50;break;
+                case 'C':
+                    if(s.charAt(i+1) == 'D' || s.charAt(i+1) == 'M')
+                        res -= 100;
+                    else
+                        res += 100;
+                    break;
+                case 'D': res += 500;break;
+                case 'M': res += 1000;break;
+            };
+        }
         return res;
     }
 }
