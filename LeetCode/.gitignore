@@ -5,7 +5,7 @@
 /.idea
 /.vscode
 /out
-/LeetCode.iml
+*.iml
 
 # Log file
 *.log
