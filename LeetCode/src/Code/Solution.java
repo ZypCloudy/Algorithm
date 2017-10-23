@@ -69,9 +69,7 @@ public class Solution {
                         count++;
                         break;
                     }
-                case 'V':
-                    count += 5;
-                    break;
+                case 'V': count += 5;break;
                 case 'X':
                     if (i == s.length() - 1) {
                         count += 10;
@@ -84,9 +82,7 @@ public class Solution {
                         count += 10;
                         break;
                     }
-                case 'L':
-                    count += 50;
-                    break;
+                case 'L': count += 50;break;
                 case 'C':
                     if (i == s.length() - 1) {
                         count += 100;
@@ -99,12 +95,8 @@ public class Solution {
                         count += 100;
                         break;
                     }
-                case 'D':
-                    count += 500;
-                    break;
-                case 'M':
-                    count += 1000;
-                    break;
+                case 'D': count += 500;break;
+                case 'M': count += 1000;break;
             }
         }
         return count;
