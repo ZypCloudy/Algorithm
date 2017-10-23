@@ -43,15 +43,6 @@ public class Solution {
         }
         return (int)sum;
     }
-//        Map map = new HashMap(){{
-//            put('I',1);
-//            put('V',5);
-//            put('X',10);
-//            put('L',50);
-//            put('C',100);
-//            put('D',500);
-//            put('M',1000);
-//        }};
     //13. Roman to Integer
     public int romanToInt(String s) {
         int count = 0;
@@ -100,5 +91,25 @@ public class Solution {
             }
         }
         return count;
+    }
+    //35. Search Insert Position
+    public int searchInsert(int[] nums, int target) {
+        if(nums == null || nums.length == 0)
+        {
+            return 0;
+        }
+        int left = 0;
+        int right = nums.length-1;
+        while(left <= right)
+        {
+            int mid = (left + right)/2;
+            if(nums[mid] == target)
+                return mid;
+            if(nums[mid] < target)
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+        return left;
     }
 }

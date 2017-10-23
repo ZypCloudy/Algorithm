@@ -8,5 +8,9 @@ public class Main {
 
         Integer mtoi = solution.romanToInt("DCXXI");
         System.out.println(mtoi);
+
+        int nums[] = {1,3,4,5};
+        int searchInedx = solution.searchInsert(nums,2);
+        System.out.println(searchInedx);
     }
 }
