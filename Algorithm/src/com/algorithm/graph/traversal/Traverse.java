@@ -1,8 +1,8 @@
-package Code;
+package com.algorithm.graph.traversal;
 
 import java.util.*;
 
-public class DFS {
+public class Traverse {
     // 存储节点信息
     private Object[] vertices;
     // 存储边的信息
@@ -16,7 +16,7 @@ public class DFS {
      */
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        DFS g = new DFS(8);
+        Traverse g = new Traverse(8);
         Character[] vertices = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
         g.addVertex(vertices);
         g.addEdge(0, 1);
@@ -38,7 +38,7 @@ public class DFS {
         System.out.println();
     }
 
-    public DFS(int n) {
+    public Traverse(int n) {
         vexnum = n;
         vertices = new Object[n];
         arcs = new int[n][n];

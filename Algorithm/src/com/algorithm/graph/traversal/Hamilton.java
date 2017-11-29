@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Code;
+package com.algorithm.graph.traversal;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,21 +11,6 @@ import java.util.Scanner;
 
 public class Hamilton {
     static int[][] citys = null;
-
-    /*public static int gettheFirst(int distance[])
-        {
-        int minNum = distance[1];
-        int theDingDian = 1;
-        for(int i = 1;i<distance.length;i++){
-            if(distance[i] < minNum)
-            {
-                minNum = distance[i];
-                theDingDian = i;
-            }
-        }
-        return theDingDian;//返回输入数所在阶乘数的最小整数
-
-    }*/
     public static void main(String[] args) {
 
         int n = 5;

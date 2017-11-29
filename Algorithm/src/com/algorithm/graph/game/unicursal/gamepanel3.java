@@ -1,4 +1,4 @@
-package Game;
+package com.algorithm.graph.game.unicursal;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -9,15 +9,16 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-@SuppressWarnings("serial")
-public class gamepanel2 extends JPanel {
-    public gamepanel2() {
+public class gamepanel3 extends JPanel {
+
+    public gamepanel3() {
+
         super();
-        JButton back = new JButton("·µ»Ø");
-        JButton backmain = new JButton("·µ»ØÖ÷²Ëµ¥");
-        drawpanel2 draw2 = new drawpanel2();
-        this.setLayout(new BorderLayout());//ÉèÖÃ²¼¾Ö·½Ê½ÎªBorderLayout
-        this.add(draw2, BorderLayout.CENTER);
+        JButton back = new JButton("è¿”å›");
+        JButton backmain = new JButton("è¿”å›ä¸»èœå•");
+        drawpanel3 draw3 = new drawpanel3();
+        this.setLayout(new BorderLayout());//è®¾ç½®å¸ƒå±€æ–¹å¼ä¸ºBorderLayout
+        this.add(draw3, BorderLayout.CENTER);
         this.add(back, BorderLayout.NORTH);
         this.add(backmain, BorderLayout.SOUTH);
         this.setVisible(true);
@@ -32,6 +33,7 @@ public class gamepanel2 extends JPanel {
                 Container container = panel.getParent();
                 CardLayout layout = (CardLayout) container.getLayout();
                 layout.show(container, "level");
+
             }
         });
         backmain.addActionListener(new ActionListener() {
@@ -39,6 +41,7 @@ public class gamepanel2 extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
+
                 JButton button = (JButton) e.getSource();
                 JPanel panel = (JPanel) button.getParent();
                 Container container = panel.getParent();
@@ -47,7 +50,6 @@ public class gamepanel2 extends JPanel {
 
             }
         });
+
     }
 }
-
-

@@ -1,4 +1,4 @@
-package Game;
+package com.algorithm.graph.game.unicursal;
 
 import java.awt.CardLayout;
 import java.awt.Container;
@@ -21,12 +21,12 @@ public class levelpanel extends JPanel {
     public levelpanel() {
         super();
 
-        JLabel gamesearch = new JLabel("¹Ø¿¨Ñ¡Ôñ");
-        JButton back = new JButton("·µ»Ø");
-        JButton level1 = new JButton("¹Ø¿¨Ò»");
-        final JButton level2 = new JButton("¹Ø¿¨¶ş");
-        final JButton level3 = new JButton("¹Ø¿¨Èı");
-        JButton unlock = new JButton("½âËøËùÓĞ¹Ø¿¨");
+        JLabel gamesearch = new JLabel("å…³å¡é€‰æ‹©");
+        JButton back = new JButton("è¿”å›");
+        JButton level1 = new JButton("å…³å¡ä¸€");
+        final JButton level2 = new JButton("å…³å¡äºŒ");
+        final JButton level3 = new JButton("å…³å¡ä¸‰");
+        JButton unlock = new JButton("è§£é”æ‰€æœ‰å…³å¡");
         level2.setEnabled(false);
         level3.setEnabled(false);
         this.add(gamesearch);
@@ -36,7 +36,7 @@ public class levelpanel extends JPanel {
         this.add(back);
         this.add(unlock);
         GridBagLayout gr = new GridBagLayout();
-        this.setLayout(gr);//ÉèÖÃlevelpanel²¼¾Ö·½Ê½ÎªÍø¸ñ²¼¾Ö
+        this.setLayout(gr);//è®¾ç½®levelpanelå¸ƒå±€æ–¹å¼ä¸ºç½‘æ ¼å¸ƒå±€
         GridBagConstraints gc = new GridBagConstraints();
         int[] gx = {1, 1, 1, 1, 1, 1};
         int[] gy = {1, 2, 3, 4, 5, 6};
@@ -121,6 +121,4 @@ public class levelpanel extends JPanel {
             }
         });
     }
-
-
 }

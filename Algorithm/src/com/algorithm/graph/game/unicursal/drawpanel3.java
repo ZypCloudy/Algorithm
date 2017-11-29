@@ -1,4 +1,4 @@
-package Game;
+package com.algorithm.graph.game.unicursal;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -21,15 +21,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class drawpanel3 extends JPanel {
-    private int[] circlex = {150, 300, 100, 250, 300, 100, 250};//Ô²ĞÄµÄx×ø±ê
-    private int[] circley = {50, 50, 100, 100, 200, 250, 250};//Ô²ĞÄµÄy×ø±ê
-    private int[] linex1 = {155, 155, 105, 255, 105, 105, 255, 255, 305, 255, 105};//Ïß¶ÎÆğµãµÄx×ø±ê
-    private int[] liney1 = {55, 55, 105, 105, 105, 255, 105, 255, 55, 105, 105};//Ïß¶ÎÆğµãµÄy×ø±ê
-    private int[] linex2 = {305, 105, 255, 305, 105, 255, 255, 305, 305, 105, 255};//Ïß¶ÎÖÕµãµÄx×ø±ê
-    private int[] liney2 = {55, 105, 105, 55, 255, 255, 255, 205, 205, 255, 255};//Ïß¶ÎÖÕµãµÄy×ø±ê
-    private Set<Ellipse2D> circle3 = new HashSet<Ellipse2D>(); //·Åcircle3µÄ¹şÏ£±í
-    private Set<Line2D> line3 = new HashSet<Line2D>();//·Åline3µÄ¹şÏ£±í
-    private Set<Line2D> visitedline3 = new HashSet<Line2D>();//·Åvisitedline3µÄ¹şÏ£±í
+    private int[] circlex = {150, 300, 100, 250, 300, 100, 250};//åœ†å¿ƒçš„xåæ ‡
+    private int[] circley = {50, 50, 100, 100, 200, 250, 250};//åœ†å¿ƒçš„yåæ ‡
+    private int[] linex1 = {155, 155, 105, 255, 105, 105, 255, 255, 305, 255, 105};//çº¿æ®µèµ·ç‚¹çš„xåæ ‡
+    private int[] liney1 = {55, 55, 105, 105, 105, 255, 105, 255, 55, 105, 105};//çº¿æ®µèµ·ç‚¹çš„yåæ ‡
+    private int[] linex2 = {305, 105, 255, 305, 105, 255, 255, 305, 305, 105, 255};//çº¿æ®µç»ˆç‚¹çš„xåæ ‡
+    private int[] liney2 = {55, 105, 105, 55, 255, 255, 255, 205, 205, 255, 255};//çº¿æ®µç»ˆç‚¹çš„yåæ ‡
+    private Set<Ellipse2D> circle3 = new HashSet<Ellipse2D>(); //æ”¾circle3çš„å“ˆå¸Œè¡¨
+    private Set<Line2D> line3 = new HashSet<Line2D>();//æ”¾line3çš„å“ˆå¸Œè¡¨
+    private Set<Line2D> visitedline3 = new HashSet<Line2D>();//æ”¾visitedline3çš„å“ˆå¸Œè¡¨
     private static double x1, y1, x2, y2 = 0;
     private Iterator<Ellipse2D> iterator = circle3.iterator();
     private Iterator<Line2D> iterator1 = line3.iterator();
@@ -37,8 +37,8 @@ public class drawpanel3 extends JPanel {
 
     public drawpanel3() {
         super();
-        final JLabel text = new JLabel("¹Ø¿¨Èı");
-        JButton reset = new JButton("ÖØĞÂ¿ªÊ¼");
+        final JLabel text = new JLabel("å…³å¡ä¸‰");
+        JButton reset = new JButton("é‡æ–°å¼€å§‹");
         this.add(text);
         this.add(reset);
         reset.addActionListener(new ActionListener() {
@@ -116,15 +116,15 @@ public class drawpanel3 extends JPanel {
                         System.out.println(x2);
                         System.out.println(y2);
 
-//	                                    	
+//
                         System.out.println("inline " + judgeinline(x1, y1, x2, y2) + "judgerepeat" + judgerepeat(x1, y1, x2, y2));
 
-                        if (judgeinline(x1, y1, x2, y2) && judgerepeat(x1, y1, x2, y2))//Èç¹ûÃ»ÓĞ×ßÖØ¸´µÄÏß¶Î£¬ÇÒÏß¶ÎÒ²´æÔÚ
+                        if (judgeinline(x1, y1, x2, y2) && judgerepeat(x1, y1, x2, y2))//å¦‚æœæ²¡æœ‰èµ°é‡å¤çš„çº¿æ®µï¼Œä¸”çº¿æ®µä¹Ÿå­˜åœ¨
 
                         {
                             Line2D readyline = new Line2D.Double(x1, y1, x2, y2);
-                            System.out.println("½øÈëvisitedµÄÏß¶Î");
-                            changelinecolor(getGraphics(), readyline);//½«Ïß¶Î¸Ä±äÎªºìÉ«
+                            System.out.println("è¿›å…¥visitedçš„çº¿æ®µ");
+                            changelinecolor(getGraphics(), readyline);//å°†çº¿æ®µæ”¹å˜ä¸ºçº¢è‰²
                             visitedline3.add(readyline);
                             x1 = x2;
                             y1 = y2;
@@ -133,14 +133,14 @@ public class drawpanel3 extends JPanel {
 
                                 Ellipse2D point = iterator.next();
                                 if (point.getCenterX() == x1 && point.getCenterY() == y1) {
-                                    changecirclecolor(getGraphics(), point);//½«µã¸Ä±äÎªºìÉ«
+                                    changecirclecolor(getGraphics(), point);//å°†ç‚¹æ”¹å˜ä¸ºçº¢è‰²
                                 }
                             }
 
 
                         }
 
-                        if (x1 == 0 && y1 == 0)//¿¼ÂÇµã»÷µÚÒ»¸öµãÊ±µÄÌØÊâÇé¿ö
+                        if (x1 == 0 && y1 == 0)//è€ƒè™‘ç‚¹å‡»ç¬¬ä¸€ä¸ªç‚¹æ—¶çš„ç‰¹æ®Šæƒ…å†µ
                         {
                             x1 = x2;
                             y1 = y2;
@@ -163,7 +163,7 @@ public class drawpanel3 extends JPanel {
                             x2 = 0;
                             y2 = 0;
 
-                            int flag1 = JOptionPane.showConfirmDialog(null, "¹§Ï²Í¨¹Ø£¬ÊÇ·ñ·µ»ØÖ÷²Ëµ¥£¿", "¹ı¹Ø", 1);
+                            int flag1 = JOptionPane.showConfirmDialog(null, "æ­å–œé€šå…³ï¼Œæ˜¯å¦è¿”å›ä¸»èœå•ï¼Ÿ", "è¿‡å…³", 1);
                             if (flag1 == 0) {
 
                                 JPanel panel = (JPanel) ((JPanel) text.getParent()).getParent();
@@ -202,7 +202,7 @@ public class drawpanel3 extends JPanel {
 
     }
 
-    public void changelinecolor(Graphics g, Line2D line)//¸Ä±äÏß¶ÎÑÕÉ«
+    public void changelinecolor(Graphics g, Line2D line)//æ”¹å˜çº¿æ®µé¢œè‰²
     {
         Color c = g.getColor();
         g.setColor(Color.red);
@@ -211,7 +211,7 @@ public class drawpanel3 extends JPanel {
         g.setColor(c);
     }
 
-    public void resetlinecolor(Graphics g, int x1, int y1, int x2, int y2)//ÖØÖÃÑÕÉ«
+    public void resetlinecolor(Graphics g, int x1, int y1, int x2, int y2)//é‡ç½®é¢œè‰²
     {
         Color c = g.getColor();
         g.setColor(Color.blue);
@@ -220,7 +220,7 @@ public class drawpanel3 extends JPanel {
         g.setColor(c);
     }
 
-    public void changecirclecolor(Graphics g, Ellipse2D circle)//¸Ä±äµãµÄÑÕÉ«
+    public void changecirclecolor(Graphics g, Ellipse2D circle)//æ”¹å˜ç‚¹çš„é¢œè‰²
     {
         Color c = g.getColor();
         g.setColor(Color.red);
@@ -240,7 +240,7 @@ public class drawpanel3 extends JPanel {
 
     }
 
-    public boolean judgeinline(double xa, double ya, double xb, double yb)//¼ì²âÊÇ·ñÔÚlineÖĞ
+    public boolean judgeinline(double xa, double ya, double xb, double yb)//æ£€æµ‹æ˜¯å¦åœ¨lineä¸­
     {
 
         iterator1 = line3.iterator();
@@ -251,9 +251,9 @@ public class drawpanel3 extends JPanel {
         System.out.println("yb=" + yb);
         while (iterator1.hasNext()) {
 
-            Line2D readyline = iterator1.next();//readylineÊÇ´ı½øÈëµÄÏß¶Î
+            Line2D readyline = iterator1.next();//readylineæ˜¯å¾…è¿›å…¥çš„çº¿æ®µ
 
-            if (readyline.getX1() == xa && readyline.getY1() == ya && readyline.getX2() == xb && readyline.getY2() == yb || readyline.getX1() == xb && readyline.getY1() == yb && readyline.getX2() == xa && readyline.getY2() == ya)//Èç¹û´ø½øÈëµÄÏß¶ÎÔÚlineÖĞ
+            if (readyline.getX1() == xa && readyline.getY1() == ya && readyline.getX2() == xb && readyline.getY2() == yb || readyline.getX1() == xb && readyline.getY1() == yb && readyline.getX2() == xa && readyline.getY2() == ya)//å¦‚æœå¸¦è¿›å…¥çš„çº¿æ®µåœ¨lineä¸­
             {
 
                 return true;
@@ -267,15 +267,15 @@ public class drawpanel3 extends JPanel {
 
     }
 
-    public boolean judgerepeat(double xa, double ya, double xb, double yb)//ÅĞ¶ÏÓĞÃ»ÓĞÖØ¸´·ÃÎÊÏß¶Î
+    public boolean judgerepeat(double xa, double ya, double xb, double yb)//åˆ¤æ–­æœ‰æ²¡æœ‰é‡å¤è®¿é—®çº¿æ®µ
     {
         iterator2 = visitedline3.iterator();
 
         while (iterator2.hasNext() && visitedline3.size() != 0) {
 
-            System.out.println("visitedµÄsizeÎª" + visitedline3.size());
+            System.out.println("visitedçš„sizeä¸º" + visitedline3.size());
             Line2D visited = iterator2.next();
-            if (visited.getX1() == xa && visited.getY1() == ya && visited.getX2() == xb && visited.getY2() == yb || visited.getX1() == xb && visited.getY1() == yb && visited.getX2() == xa && visited.getY2() == ya)//Èç¹ûÃ»ÓĞÖØ¸´Ïß¶Î
+            if (visited.getX1() == xa && visited.getY1() == ya && visited.getX2() == xb && visited.getY2() == yb || visited.getX1() == xb && visited.getY1() == yb && visited.getX2() == xa && visited.getY2() == ya)//å¦‚æœæ²¡æœ‰é‡å¤çº¿æ®µ
             {
 
                 return false;
@@ -305,9 +305,5 @@ public class drawpanel3 extends JPanel {
             line3.add(drawline(g2, linex1[i], liney1[i], linex2[i], liney2[i]));
             System.out.println("------------------------------------" + line3.size());
         }
-
-
     }
-
-
 }

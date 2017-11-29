@@ -1,4 +1,4 @@
-package Game;
+package com.algorithm.graph.game.unicursal;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -20,28 +20,26 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class drawpanel extends JPanel {
-    private int[] circlex = {200, 100, 300, 150, 250};//Ô²ĞÄµÄx×ø±ê
-    private int[] circley = {50, 150, 150, 250, 250};//Ô²ĞÄµÄy×ø±ê
-    private int[] linex1 = {105, 305, 155, 205, 255};//Ïß¶ÎÆğµãµÄx×ø±ê
-    private int[] liney1 = {155, 155, 255, 55, 255};//Ïß¶ÎÆğµãµÄy×ø±ê
-    private int[] linex2 = {305, 155, 205, 255, 105};//Ïß¶ÎÖÕµãµÄx×ø±ê
-    private int[] liney2 = {155, 255, 55, 255, 155};//Ïß¶ÎÖÕµãµÄy×ø±ê
-    private Set<Ellipse2D> circle = new HashSet<Ellipse2D>(); //·ÅcircleµÄ¹şÏ£±í
-    private Set<Line2D> line = new HashSet<Line2D>();//·ÅlineµÄ¹şÏ£±í
-    private Set<Line2D> visitedline = new HashSet<Line2D>();//·ÅvisitedlineµÄ¹şÏ£±í
+public class drawpanel2 extends JPanel {
+    private int[] circlex = {150, 250, 100, 200, 300, 150, 250};//åœ†å¿ƒçš„xåæ ‡
+    private int[] circley = {50, 50, 150, 150, 150, 250, 250};//åœ†å¿ƒçš„yåæ ‡
+    private int[] linex1 = {155, 255, 155, 155, 155, 255, 105, 205, 105, 205, 155, 105, 205, 305};//çº¿æ®µèµ·ç‚¹çš„xåæ ‡
+    private int[] liney1 = {55, 55, 55, 55, 55, 55, 155, 155, 155, 155, 255, 155, 155, 155};//çº¿æ®µèµ·ç‚¹çš„yåæ ‡
+    private int[] linex2 = {255, 305, 105, 305, 205, 205, 205, 305, 155, 155, 255, 255, 255, 255};//çº¿æ®µç»ˆç‚¹çš„xåæ ‡
+    private int[] liney2 = {55, 155, 155, 155, 155, 155, 155, 155, 255, 255, 255, 255, 255, 255};//çº¿æ®µç»ˆç‚¹çš„yåæ ‡
+    private Set<Ellipse2D> circle2 = new HashSet<Ellipse2D>(); //æ”¾circle2çš„å“ˆå¸Œè¡¨
+    private Set<Line2D> line2 = new HashSet<Line2D>();//æ”¾line2çš„å“ˆå¸Œè¡¨
+    private Set<Line2D> visitedline2 = new HashSet<Line2D>();//æ”¾visitedline2çš„å“ˆå¸Œè¡¨
     private static double x1, y1, x2, y2 = 0;
+    private Iterator<Ellipse2D> iterator = circle2.iterator();
+    private Iterator<Line2D> iterator1 = line2.iterator();
+    private Iterator<Line2D> iterator2 = visitedline2.iterator();
 
-    private Iterator<Ellipse2D> iterator = circle.iterator();
-    private Iterator<Line2D> iterator1 = line.iterator();
-    private Iterator<Line2D> iterator2 = visitedline.iterator();
 
-
-    public drawpanel() {
-        // TODO Auto-generated constructor stub
+    public drawpanel2() {
         super();
-        final JLabel text = new JLabel("¹Ø¿¨Ò»");
-        JButton reset = new JButton("ÖØĞÂ¿ªÊ¼");
+        final JLabel text = new JLabel("å…³å¡äºŒ");
+        JButton reset = new JButton("é‡æ–°å¼€å§‹");
         this.add(text);
         this.add(reset);
         reset.addActionListener(new ActionListener() {
@@ -53,33 +51,54 @@ public class drawpanel extends JPanel {
                 y1 = 0;
                 x2 = 0;
                 y2 = 0;
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 14; i++) {
                     resetlinecolor(getGraphics(), linex1[i], liney1[i], linex2[i], liney2[i]);
 
                 }
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 7; i++) {
                     resetcirclecolor((Graphics2D) getGraphics(), circlex[i], circley[i]);
                 }
 
 
-                visitedline.clear();
+                visitedline2.clear();
+
             }
         });
-
         this.addMouseListener(new MouseListener() {
 
-            @SuppressWarnings("null")
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mouseReleased(MouseEvent arg0) {
                 // TODO Auto-generated method stub
 
-                System.out.println("------------------------------------" + line.size());
+            }
+
+            @Override
+            public void mousePressed(MouseEvent arg0) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("------------------------------------" + line2.size());
                 int x = e.getX();
                 int y = e.getY();
 
-                iterator = circle.iterator();
+                iterator = circle2.iterator();
 
-                while (iterator.hasNext())//ÅĞ¶Ïµã»÷µÄµãÊÇ·ñÔÚÏß¶ÎµÄ¶¥µã
+                while (iterator.hasNext())//åˆ¤æ–­ç‚¹å‡»çš„ç‚¹æ˜¯å¦åœ¨çº¿æ®µçš„é¡¶ç‚¹
                 {
                     Ellipse2D e1 = iterator.next();
 
@@ -96,29 +115,32 @@ public class drawpanel extends JPanel {
 
                         System.out.println("inline " + judgeinline(x1, y1, x2, y2) + "judgerepeat" + judgerepeat(x1, y1, x2, y2));
 
-                        if (judgeinline(x1, y1, x2, y2) && judgerepeat(x1, y1, x2, y2))//Èç¹ûÃ»ÓĞ×ßÖØ¸´µÄÏß¶Î£¬ÇÒÏß¶ÎÒ²´æÔÚ
+                        if (judgeinline(x1, y1, x2, y2) && judgerepeat(x1, y1, x2, y2))//å¦‚æœæ²¡æœ‰èµ°é‡å¤çš„çº¿æ®µï¼Œä¸”çº¿æ®µä¹Ÿå­˜åœ¨
 
                         {
                             Line2D readyline = new Line2D.Double(x1, y1, x2, y2);
-                            System.out.println("½øÈëvisitedµÄÏß¶Î");
-                            changelinecolor(getGraphics(), readyline);//½«Ïß¶Î¸Ä±äÎªºìÉ«
-                            visitedline.add(readyline);
+                            System.out.println("è¿›å…¥visitedçš„çº¿æ®µ");
+                            changelinecolor(getGraphics(), readyline);//å°†çº¿æ®µæ”¹å˜ä¸ºçº¢è‰²
+                            visitedline2.add(readyline);
                             x1 = x2;
                             y1 = y2;
-                            iterator = circle.iterator();
+                            iterator = circle2.iterator();
                             while (iterator.hasNext()) {
 
                                 Ellipse2D point = iterator.next();
                                 if (point.getCenterX() == x1 && point.getCenterY() == y1) {
-                                    changecirclecolor(getGraphics(), point);//½«µã¸Ä±äÎªºìÉ«
+                                    changecirclecolor(getGraphics(), point);//å°†ç‚¹æ”¹å˜ä¸ºçº¢è‰²
                                 }
                             }
+
+
                         }
-                        if (x1 == 0 && y1 == 0)//¿¼ÂÇµã»÷µÚÒ»¸öµãÊ±µÄÌØÊâÇé¿ö
+
+                        if (x1 == 0 && y1 == 0)//è€ƒè™‘ç‚¹å‡»ç¬¬ä¸€ä¸ªç‚¹æ—¶çš„ç‰¹æ®Šæƒ…å†µ
                         {
                             x1 = x2;
                             y1 = y2;
-                            iterator = circle.iterator();
+                            iterator = circle2.iterator();
                             while (iterator.hasNext()) {
 
                                 Ellipse2D point = iterator.next();
@@ -127,25 +149,29 @@ public class drawpanel extends JPanel {
 
                                 }
                             }
+
+
                         }
-                        if (visitedline.size() == 5)//ËùÓĞÏß¶Î·ÃÎÊÍê±Ï
+
+
+                        if (visitedline2.size() == 14)//æ‰€æœ‰çº¿æ®µè®¿é—®å®Œæ¯•
                         {
-                            visitedline.clear();
+                            visitedline2.clear();
                             x1 = 0;
                             y1 = 0;
                             x2 = 0;
                             y2 = 0;
 
-                            int flag1 = JOptionPane.showConfirmDialog(null, "¹§Ï²¹ı¹Ø£¬ÊÇ·ñ½øÈëÏÂÒ»¹Ø£¿", "¹ı¹Ø", 1);
-                            if (flag1 == 0)//µã»÷¡°ÊÇ¡°
+                            int flag1 = JOptionPane.showConfirmDialog(null, "æ­å–œè¿‡å…³ï¼Œæ˜¯å¦è¿›å…¥ä¸‹ä¸€å…³ï¼Ÿ", "è¿‡å…³", 1);
+                            if (flag1 == 0)//ç‚¹å‡»â€œæ˜¯â€œ
                             {
 
                                 JPanel panel = (JPanel) ((JPanel) text.getParent()).getParent();
                                 Container container = panel.getParent();
                                 CardLayout layout = (CardLayout) container.getLayout();
-                                layout.show(container, "game2");
+                                layout.show(container, "game3");
 
-                                //ÒÔÏÂ´úÂëÎª½âËøµÚ¶ş¹Ø
+                                //ä»¥ä¸‹ä»£ç ä¸ºè§£é”ç¬¬äºŒå…³
                                 JPanel jPanel = (JPanel) getParent();
                                 JPanel jPanel2 = (JPanel) jPanel.getParent();
 
@@ -156,40 +182,24 @@ public class drawpanel extends JPanel {
                                 button.setEnabled(true);
 
                             }
+
+
                         }
+
+
                     }
+
+
                 }
-            }
-            @Override
-            public void mouseEntered(MouseEvent arg0) {
-                // TODO Auto-generated method stub
 
-            }
-
-            @Override
-            public void mouseExited(MouseEvent arg0) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent arg0) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent arg0) {
-                // TODO Auto-generated method stub
 
             }
 
         });
 
-        this.setVisible(true);
     }
 
-    public Ellipse2D drawcircle(Graphics2D g, int x, int y)//»­µã
+    public Ellipse2D drawcircle(Graphics2D g, int x, int y)//ç”»åˆå§‹ç‚¹
     {
         Color c = g.getColor();
         g.setColor(Color.green);
@@ -197,8 +207,11 @@ public class drawpanel extends JPanel {
         g.fill(a);
         g.setColor(c);
         return a;
+
+
     }
-    public Line2D drawline(Graphics g, int x1, int y1, int x2, int y2)//»­³õÊ¼Ïß¶Î
+
+    public Line2D drawline(Graphics g, int x1, int y1, int x2, int y2)//ç”»åˆå§‹çº¿æ®µ
     {
         Color c = g.getColor();
         g.setColor(Color.blue);
@@ -208,7 +221,8 @@ public class drawpanel extends JPanel {
         return a;
 
     }
-    public void changelinecolor(Graphics g, Line2D line)//¸Ä±äÏß¶ÎÑÕÉ«
+
+    public void changelinecolor(Graphics g, Line2D line)//æ”¹å˜çº¿æ®µé¢œè‰²
     {
         Color c = g.getColor();
         g.setColor(Color.red);
@@ -217,7 +231,7 @@ public class drawpanel extends JPanel {
         g.setColor(c);
     }
 
-    public void resetlinecolor(Graphics g, int x1, int y1, int x2, int y2)//ÖØÖÃÑÕÉ«
+    public void resetlinecolor(Graphics g, int x1, int y1, int x2, int y2)//é‡ç½®é¢œè‰²
     {
         Color c = g.getColor();
         g.setColor(Color.blue);
@@ -226,7 +240,7 @@ public class drawpanel extends JPanel {
         g.setColor(c);
     }
 
-    public void changecirclecolor(Graphics g, Ellipse2D circle)//¸Ä±äµãµÄÑÕÉ«
+    public void changecirclecolor(Graphics g, Ellipse2D circle)//æ”¹å˜ç‚¹çš„é¢œè‰²
     {
         Color c = g.getColor();
         g.setColor(Color.red);
@@ -236,7 +250,7 @@ public class drawpanel extends JPanel {
 
     }
 
-    public void resetcirclecolor(Graphics2D g, int x, int y)//ÖØÖÃÏß¶ÎÑÕÉ«ÎªÀ¶É«
+    public void resetcirclecolor(Graphics2D g, int x, int y)//é‡ç½®ç‚¹çš„é¢œè‰²ä¸ºè“è‰²
     {
 
         Color c = g.getColor();
@@ -247,10 +261,10 @@ public class drawpanel extends JPanel {
 
     }
 
-    public boolean judgeinline(double xa, double ya, double xb, double yb)//¼ì²âÊÇ·ñÔÚlineÖĞ
+    public boolean judgeinline(double xa, double ya, double xb, double yb)//æ£€æµ‹æ˜¯å¦åœ¨lineä¸­
     {
 
-        iterator1 = line.iterator();
+        iterator1 = line2.iterator();
 
         System.out.println("xa=" + xa);
         System.out.println("ya=" + ya);
@@ -258,9 +272,9 @@ public class drawpanel extends JPanel {
         System.out.println("yb=" + yb);
         while (iterator1.hasNext()) {
 
-            Line2D readyline = iterator1.next();//readylineÊÇ´ı½øÈëµÄÏß¶Î
+            Line2D readyline = iterator1.next();//readylineæ˜¯å¾…è¿›å…¥çš„çº¿æ®µ
 
-            if (readyline.getX1() == xa && readyline.getY1() == ya && readyline.getX2() == xb && readyline.getY2() == yb || readyline.getX1() == xb && readyline.getY1() == yb && readyline.getX2() == xa && readyline.getY2() == ya)//Èç¹û´ø½øÈëµÄÏß¶ÎÔÚlineÖĞ
+            if (readyline.getX1() == xa && readyline.getY1() == ya && readyline.getX2() == xb && readyline.getY2() == yb || readyline.getX1() == xb && readyline.getY1() == yb && readyline.getX2() == xa && readyline.getY2() == ya)//å¦‚æœå¸¦è¿›å…¥çš„çº¿æ®µåœ¨lineä¸­
             {
 
                 return true;
@@ -274,15 +288,15 @@ public class drawpanel extends JPanel {
 
     }
 
-    public boolean judgerepeat(double xa, double ya, double xb, double yb)//ÅĞ¶ÏÓĞÃ»ÓĞÖØ¸´·ÃÎÊÏß¶Î
+    public boolean judgerepeat(double xa, double ya, double xb, double yb)//åˆ¤æ–­æœ‰æ²¡æœ‰é‡å¤è®¿é—®çº¿æ®µ
     {
-        iterator2 = visitedline.iterator();
+        iterator2 = visitedline2.iterator();
 
-        while (iterator2.hasNext() && visitedline.size() != 0) {
+        while (iterator2.hasNext() && visitedline2.size() != 0) {
 
-            System.out.println("visitedµÄsizeÎª" + visitedline.size());
+            System.out.println("visitedçš„sizeä¸º" + visitedline2.size());
             Line2D visited = iterator2.next();
-            if (visited.getX1() == xa && visited.getY1() == ya && visited.getX2() == xb && visited.getY2() == yb || visited.getX1() == xb && visited.getY1() == yb && visited.getX2() == xa && visited.getY2() == ya)//Èç¹ûÃ»ÓĞÖØ¸´Ïß¶Î
+            if (visited.getX1() == xa && visited.getY1() == ya && visited.getX2() == xb && visited.getY2() == yb || visited.getX1() == xb && visited.getY1() == yb && visited.getX2() == xa && visited.getY2() == ya)//å¦‚æœæ²¡æœ‰é‡å¤çº¿æ®µ
             {
 
                 return false;
@@ -292,29 +306,21 @@ public class drawpanel extends JPanel {
 
     }
 
-
     @Override
-    protected void paintComponent(Graphics g)//»­³õÊ¼Ïß¶Î
+    protected void paintComponent(Graphics g)//ç”»åˆå§‹çº¿æ®µå’Œç‚¹
     {
         // TODO Auto-generated method stub
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-
-        circle.clear();
-        for (int i = 0; i < 5; i++) {
-            circle.add(drawcircle(g2, circlex[i], circley[i]));
+        circle2.clear();
+        for (int i = 0; i < 7; i++) {
+            circle2.add(drawcircle(g2, circlex[i], circley[i]));
 
         }
-
-
-        line.clear();
-        for (int i = 0; i < 5; i++) {
-            line.add(drawline(g2, linex1[i], liney1[i], linex2[i], liney2[i]));
-            System.out.println("------------------------------------" + line.size());
+        line2.clear();
+        for (int i = 0; i < 14; i++) {
+            line2.add(drawline(g2, linex1[i], liney1[i], linex2[i], liney2[i]));
+            System.out.println("------------------------------------" + line2.size());
         }
-
-
     }
-
-
 }

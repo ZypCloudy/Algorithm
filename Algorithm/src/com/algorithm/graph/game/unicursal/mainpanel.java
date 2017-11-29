@@ -1,6 +1,6 @@
 
 
-package Game;
+package com.algorithm.graph.game.unicursal;
 
 import java.awt.CardLayout;
 import java.awt.Container;
@@ -29,9 +29,9 @@ public class mainpanel extends JPanel {
         super();
 
 
-        JLabel gamename = new JLabel("Ò»±Ê»­ÓÎÏ·");
-        JButton start = new JButton("¿ªÊ¼ÓÎÏ·");
-        JButton exit = new JButton("ÍË³öÓÎÏ·");
+        JLabel gamename = new JLabel("ä¸€ç¬”ç”»æ¸¸æˆ");
+        JButton start = new JButton("å¼€å§‹æ¸¸æˆ");
+        JButton exit = new JButton("é€€å‡ºæ¸¸æˆ");
         this.setVisible(true);
         this.add(gamename);
         this.add(start);
@@ -79,8 +79,5 @@ public class mainpanel extends JPanel {
                 System.exit(0);
             }
         });
-
-
     }
-
 }

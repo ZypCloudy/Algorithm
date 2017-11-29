@@ -1,4 +1,4 @@
-package Game;
+package com.algorithm.graph.game.unicursal;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -14,9 +14,9 @@ import javax.swing.JPanel;
 public class leveldialog extends JDialog {
     public leveldialog() {
         this.setAlwaysOnTop(isAlwaysOnTop());
-        JButton nextlevel = new JButton("¼ÌĞøÏÂÒ»¹Ø");
-        JButton back = new JButton("·µ»Ø");
-        JLabel text = new JLabel("¹§Ï²¹ı¹Ø");
+        JButton nextlevel = new JButton("ç»§ç»­ä¸‹ä¸€å…³");
+        JButton back = new JButton("è¿”å›");
+        JLabel text = new JLabel("æ­å–œè¿‡å…³");
         this.setLayout(new BorderLayout());
         this.add(text);
         this.add(nextlevel);
@@ -48,8 +48,5 @@ public class leveldialog extends JDialog {
 
             }
         });
-
-
     }
-
 }

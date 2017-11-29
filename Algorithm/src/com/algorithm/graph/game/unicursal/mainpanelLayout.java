@@ -1,4 +1,4 @@
-package Game;
+package com.algorithm.graph.game.unicursal;
 
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -78,9 +78,4 @@ public class mainpanelLayout extends CardLayout implements LayoutManager2 {
         // TODO Auto-generated method stub
         return null;
     }
-
-
 }
-
-	
-

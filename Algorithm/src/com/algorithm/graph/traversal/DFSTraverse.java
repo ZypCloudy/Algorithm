@@ -1,10 +1,11 @@
-package Code;
+package com.algorithm.graph.traversal;
 
 /**
  * 广度优先
  */
 public class DFSTraverse {
     // 构造图的边
+    //原图:http://blog.csdn.net/zhuangm_888/article/details/48341591
     private int[][] edges = {
             { 0, 1, 0, 0, 0, 1, 0, 0, 0 },
             { 1, 0, 1, 0, 0, 0, 1, 0, 1 },
@@ -65,6 +66,7 @@ public class DFSTraverse {
 
     // 测试
     public static void main(String[] args) {
+        System.out.print("广度优先:");
         new DFSTraverse().DFSTra();
     }
 

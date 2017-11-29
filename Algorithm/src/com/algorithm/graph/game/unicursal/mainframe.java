@@ -1,4 +1,4 @@
-package Game;
+package com.algorithm.graph.game.unicursal;
 
 import java.awt.CardLayout;
 import java.awt.Container;
@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class mainframe extends JFrame {
     public mainframe() {
-        super("Ò»±Ê»­ÓÎÏ·");
+        super("ä¸€ç¬”ç”»æ¸¸æˆ");
     }
 
     @SuppressWarnings("deprecation")
@@ -20,7 +20,7 @@ public class mainframe extends JFrame {
         mainmenu.setSize(500, 500);
         Container co = mainmenu.getContentPane();
         CardLayout card = new CardLayout();
-        co.setLayout(card);//¶¨Òå²¼¾ÖÄ£Ê½Îª¿¨Æ¬²¼¾Ö
+        co.setLayout(card);//å®šä¹‰å¸ƒå±€æ¨¡å¼ä¸ºå¡ç‰‡å¸ƒå±€
         co.setLayout(card);
         drawpanel draw = new drawpanel();
         levelpanel levelpa = new levelpanel();
@@ -34,12 +34,12 @@ public class mainframe extends JFrame {
         mainmenu.add(gamepa);
         mainmenu.add(gamepa2);
         mainmenu.add(gamepa3);
-        co.add("main", mainpa);//½«Ä£°åmainpa·ÅÈëmainframeµÄcardÖĞ
-        co.add("level", levelpa);//½«Ä£°ålevelpanel·ÅÈëmainframeµÄcardÖĞ
-        co.add("game", gamepa);//½«Ä£°ågamepa·ÅÈëmainframeµÄcardÖĞ
+        co.add("main", mainpa);//å°†æ¨¡æ¿mainpaæ”¾å…¥mainframeçš„cardä¸­
+        co.add("level", levelpa);//å°†æ¨¡æ¿levelpanelæ”¾å…¥mainframeçš„cardä¸­
+        co.add("game", gamepa);//å°†æ¨¡æ¿gamepaæ”¾å…¥mainframeçš„cardä¸­
         co.add("game2", gamepa2);
         co.add("game3", gamepa3);
-        card.show(co, "main");//´ò¿ªmainframeÊ×ÏÈÏÔÊ¾µÄÊÇmainpa
+        card.show(co, "main");//æ‰“å¼€mainframeé¦–å…ˆæ˜¾ç¤ºçš„æ˜¯mainpa
         mainmenu.setVisible(true);
     }
 }

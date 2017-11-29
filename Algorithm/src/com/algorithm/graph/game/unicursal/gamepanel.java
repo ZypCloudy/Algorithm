@@ -1,4 +1,4 @@
-package Game;
+package com.algorithm.graph.game.unicursal;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -17,11 +17,11 @@ public class gamepanel extends JPanel {
 
     public gamepanel() {
         super();
-        JButton back = new JButton("·µ»Ø");
-        JButton backmain = new JButton("·µ»ØÖ÷²Ëµ¥");
-        JButton reset = new JButton("ÖØĞÂ¿ªÊ¼");
+        JButton back = new JButton("è¿”å›");
+        JButton backmain = new JButton("è¿”å›ä¸»èœå•");
+        JButton reset = new JButton("é‡æ–°å¼€å§‹");
         drawpanel draw = new drawpanel();
-        this.setLayout(new BorderLayout());//ÉèÖÃ²¼¾Ö·½Ê½ÎªBorderLayout
+        this.setLayout(new BorderLayout());//è®¾ç½®å¸ƒå±€æ–¹å¼ä¸ºBorderLayout
         this.add(draw, BorderLayout.CENTER);
         this.add(back, BorderLayout.NORTH);
         this.add(backmain, BorderLayout.SOUTH);

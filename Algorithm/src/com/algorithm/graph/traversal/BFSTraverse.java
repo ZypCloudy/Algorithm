@@ -1,4 +1,4 @@
-package Code;
+package com.algorithm.graph.traversal;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -8,6 +8,7 @@ import java.util.Queue;
  */
 public class BFSTraverse {
     // 构造图的边
+    //原图:http://blog.csdn.net/zhuangm_888/article/details/48341591
     private int[][] edges = { { 0, 1, 0, 0, 0, 1, 0, 0, 0 },
             { 1, 0, 1, 0, 0, 0, 1, 0, 1 }, { 0, 1, 0, 1, 0, 0, 0, 0, 1 },
             { 0, 0, 1, 0, 1, 0, 1, 1, 1 }, { 0, 0, 0, 1, 0, 1, 0, 1, 0 },
@@ -65,6 +66,7 @@ public class BFSTraverse {
 
     // 测试
     public static void main(String args[]) {
+        System.out.print("深度优先:");
         new BFSTraverse().BFS();
     }
 }

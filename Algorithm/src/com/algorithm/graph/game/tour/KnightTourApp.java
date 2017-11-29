@@ -1,4 +1,4 @@
-package Code;
+package com.algorithm.graph.game.tour;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,6 +19,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.util.*;
 
+/**
+ * ÆïÊ¿ÂÃÐÐ
+ */
 public class KnightTourApp extends JApplet implements ActionListener {
     private Model model = new Model();
     private View view = new View();
@@ -391,12 +394,6 @@ public class KnightTourApp extends JApplet implements ActionListener {
                 System.out.println();
             }
         }
-
-
-        /** Obtain a DFS tree starting from vertex v */
-        /**
-         * To be discussed in Section 13.6
-         */
         public Tree dfs(int v) {
             List<Integer> searchOrders = new ArrayList<Integer>();
             int[] parent = new int[vertices.length];
@@ -413,9 +410,6 @@ public class KnightTourApp extends JApplet implements ActionListener {
             return new Tree(v, parent, searchOrders);
         }
 
-        /**
-         * Recursive method for DFS search
-         */
         private void dfs(int v, int[] parent, List<Integer> searchOrders,
                          boolean[] isVisited) {
 
