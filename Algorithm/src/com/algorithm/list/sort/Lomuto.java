@@ -1,5 +1,8 @@
 package com.algorithm.list.sort;
 
+/**
+ * 第k小元素
+ */
 public class Lomuto {
 	public static void main(String[] args) {
 		int[] a = {2,7,2,5,6,4,9,10};
