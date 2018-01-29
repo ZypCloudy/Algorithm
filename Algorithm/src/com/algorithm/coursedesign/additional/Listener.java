@@ -29,7 +29,13 @@ public class Listener implements ActionListener {
             de.backtrack();
             long endTime = System.currentTimeMillis(); //获取结束时间
             text.setText((endTime - startTime) + "ms");
-        }  else {
+        }else if(btn.getText().equals("优化")){
+            Optimize de = new Optimize(mc,cbx,metrix);
+            long startTime=System.currentTimeMillis();   //获取开始时间
+            de.optimize();
+            long endTime=System.currentTimeMillis(); //获取结束时间
+            text.setText((endTime-startTime)+"ms");
+        }else {
             Recall de = new Recall(mc, cbx, metrix);
             de.resetMap();
             text.setText(null);

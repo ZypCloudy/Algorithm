@@ -145,10 +145,14 @@ public class MainFrame {
         JButton recall = new JButton("回溯");
         recall.setBounds(680, 170, 100, 40);
         recall.addActionListener(new Listener(mc, p, text, cbx, metrix));
+        JButton optimize = new JButton("优化");
+        optimize.setBounds(680, 230, 100, 40);
+        optimize.addActionListener(new Listener(mc, p, text, cbx, metrix));
         JButton reset = new JButton("重置");
-        reset.setBounds(680, 240, 100, 40);
+        reset.setBounds(680, 290, 100, 40);
         reset.addActionListener(new Listener(mc, p, text, cbx, metrix));
         frame.add(recall);
+        frame.add(optimize);
         frame.add(reset);
     }
 }
