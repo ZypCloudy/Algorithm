@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 import java.util.*;
 
 /**
- * ÆïÊ¿ÂÃÐÐ
+ * éª‘å£«æ—…è¡Œ
  */
 public class KnightTourApp extends JApplet implements ActionListener {
     private Model model = new Model();
