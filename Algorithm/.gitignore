@@ -5,7 +5,6 @@
 /.idea
 /.vscode
 /out
-*.iml
 
 # Log file
 *.log
